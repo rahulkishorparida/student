@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .cl{
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <section id="s1">
+        <div class="container">
+            <a href="/add-student">
+                <button class="btn btn-primary pull-right"type="Submmit" style="border-radius: 0px;">Add</button>
+            </a>
+			<a href="/clear-students">
+			                <button class="btn btn-danger pull-right"type="button" style="border-radius: 0%;" onclick="return confirm('are you sure?')">Clear</button>
+						</a>
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="cl">
+                        <th>Id</th>
+						<th>Student_Id</th>
+                        <th>Name</th>
+						<th>Photo</th>
+						<th>Functions</th>
+                    </tr>
+                </thead>
+				<tbody>
+				        <tr th:each="student : ${students}">
+				            <td th:text="${student.id}"></td>
+				            <td th:text="${student.studentId}"></td>
+				            <td th:text="${student.name}"></td>
+							<td>
+						       
+							   <img th:src="@{'/uploads/' + ${student.photo}}" alt="Student Photo" width="50">
+
+							</td>
+							<td>
+											<a th:href="@{'/view-student/' + ${student.id}}">
+												<i class="fa-solid fa-eye"></i>
+												
+											</a>
+
+											<a th:href="@{'/delete-student/'+ ${student.id}}"  onclick="return confirm('are you want to confirm?')">
+												<i class="fa-solid fa-trash"></i>
+											</a>
+												
+											<a th:href="@{'/edit-student/' + ${student.id}}">
+												<i class="fa-solid fa-pencil"></i>
+											</a>
+										</td>
+						
+				        </tr>
+				    </tbody>
+				
+				
+
+            </table>
+
+        </div>
+
+
+    </section>
+    
+</body>
+</html>

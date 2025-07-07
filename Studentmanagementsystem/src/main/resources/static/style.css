@@ -1,0 +1,10 @@
+.clr{
+	color: crimson;
+	border-right: 1px solid crimson important;
+}
+#s1.thead.tr th.clr{
+	border-right: 2px solid orange;
+}
+input{
+	width: 30% !important;
+}

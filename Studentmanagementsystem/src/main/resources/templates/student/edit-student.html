@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        input{
+            width: 350px !important;
+        }
+        .fr{
+            border: 2px solid greenyellow;
+            width: 400px !important;
+        }
+     
+    </style>
+</head>
+<body>
+    <section id="s1">
+        <div class="container fr" ><br>
+			<form th:action="@{/edit-student}" method="post" th:object="${studentDto}"  enctype="multipart/form-data">
+			    
+				<div class="form-group">
+		        <label for="studentId">ID</label>
+		        <input type="text" class="form-control" th:field="*{id}" readonly>
+				 </div>
+				
+			    <div class="form-group">
+			        <label for="studentId">Student ID</label>
+			        <input type="text" class="form-control" th:field="*{studentId}" required>
+			    </div>
+			    <div class="form-group">
+			        <label for="name">Name</label>
+			        <input type="text" class="form-control" th:field="*{name}" required>
+			    </div>
+			    <div class="form-group">
+			        <label for="file">Photo</label>
+			        <input type="file" class="form-control" name="file">
+			    </div>
+			    <button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+
+            <br>
+            
+        </div>
+   
+    </section>
+    
+</body>
+</html>
